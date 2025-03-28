@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Menu</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- editor do menu -->
+    <div class="editor-container">
+        <h2 class="text-center text-2xl font-semibold">Editor de Menu</h2>
+
+        <label for="menu-bg-color">Cor de Fundo do Menu:</label>
+        <input type="color" id="menu-bg-color" value="#2a2a2a">
+
+        <label for="menu-text-color">Cor do Texto do Menu:</label>
+        <input type="color" id="menu-text-color" value="#ffffff">
+
+        <label for="menu-item-bg-color">Cor de Fundo dos Itens do Menu:</label>
+        <input type="color" id="menu-item-bg-color" value="#333333">
+
+        <label for="menu-item-border-radius">Raio da Borda dos Itens:</label>
+        <input type="number" id="menu-item-border-radius" value="3" min="0">
+
+        <label for="menu-item-spacing">Espaçamento entre Itens (máximo 80px):</label>
+        <input type="number" id="menu-item-spacing" value="15" min="0" max="80">
+
+        <label for="menu-height">Altura do Menu (mínimo 20px, máximo 40px):</label>
+        <input type="number" id="menu-height" value="20" min="20" max="40">
+
+        <label for="align-items">Alinhar Itens:</label>
+        <select id="align-items">
+            <option value="left">Esquerda</option>
+            <option value="center">Centro</option>
+            <option value="right">Direita</option>
+        </select>
+
+        <label for="add-item">Adicionar Item ao Menu:</label>
+        <input type="text" id="add-item" placeholder="Nome do Item">
+        <button id="add-item-btn">Adicionar</button>
+
+        <button id="clear-items-btn">Limpar Itens</button>
+
+        <label>Botão Logotipo:</label>
+        <button id="toggle-logo-btn">Ativar Logotipo</button>
+
+        <label for="logo-file">Selecionar Logotipo (Imagem):</label>
+        <input type="file" id="logo-file" accept="image/*">
+    </div>
+
+    <!-- configs do menu gerado -->
+    <div class="generated-menu-container">
+        <div class="generated-menu" id="generated-menu">
+            <div id="menu-list" class="menu-items">
+                <!-- configs do botão logo -->
+                <div class="menu-logo" id="menu-logo">
+                    LOGO
+                </div>
+                <!-- os items gerados dentro do menu ficarão aqui -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
