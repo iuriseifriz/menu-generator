@@ -1,3 +1,4 @@
+//pega os elementos do html pra brincar no js, literalmente DOM
 document.addEventListener('DOMContentLoaded', function () {
 
     //pegar os items do html
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const toggleLogoBtn = document.getElementById('toggle-logo-btn');
     const logoFileInput = document.getElementById('logo-file');
 
+    //variaveis que guardam alguns valores que podem ser modificados mais pra frente
     let menuItems = [];
     let logoVisible = true;
     let logoImageUrl = '';
@@ -37,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         menuList.innerHTML = '';
 
+        //coloca a logo no site
         if (logoVisible) {
             if (logoImageUrl) {
                 const img = document.createElement('img');
@@ -49,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
+        //seta as configuracoes do item quando eh gerado
         menuItems.forEach(item => {
             const div = document.createElement('div');
             div.textContent = item;
@@ -63,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    //funcao pra adicionar item quando clica no botao
     addItemBtn.addEventListener('click', function () {
         if (addItemInput.value.trim() !== '' && menuItems.length < 5) {
             menuItems.push(addItemInput.value.trim());
@@ -71,17 +76,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    //funcao que limpa os items quando clica no botao de limpar
     clearItemsBtn.addEventListener('click', function () {
         menuItems = [];
         updateMenu();
     });
 
+    //funcao pra ativar e desativar o botao logo
     toggleLogoBtn.addEventListener('click', function () {
         logoVisible = !logoVisible;
         toggleLogoBtn.textContent = logoVisible ? 'Esconder Logotipo' : 'Ativar Logotipo';
         updateMenu();
     });
 
+    //funcao pra ler a imagem que o usuario envia, tornando ela uma url
     logoFileInput.addEventListener('change', function () {
         const file = logoFileInput.files[0];
         if (file) {
@@ -94,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    //updater pra atualizar menu conforme user estiliza o menu
+    //updater pra atualizar menu conforme user estiliza o menu, eventos de entrada
     menuBgColorInput.addEventListener('input', updateMenu);
     menuTextColorInput.addEventListener('input', updateMenu);
     menuItemBgColorInput.addEventListener('input', updateMenu);
